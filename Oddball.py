@@ -10,8 +10,8 @@ from mne.preprocessing import ICA
 import numpy as np
 easycap_montage = mne.channels.make_standard_montage('easycap-M1')
     
+Ids=[9,11,12,13,14,15,26,27,28,29,30,31,32,33,34]
 
-Ids=range(26,34)
 states=['attend','ignore']
 
 for id in Ids:
@@ -38,6 +38,6 @@ for id in Ids:
         #epoch    
         epochs=mne.Epochs(eeg, events=np.concatenate([standard_events,deviant_events]), event_id=event_id, tmin=-0.1, tmax=0.45,reject=dict(eeg=100e-6),baseline=(None,0))
         epochs.equalize_event_counts(event_ids=event_id)
-        epochs.save('oddball_%03d-epo.fif'%(id))
+        epochs.save('ciba%03d_ob_%s-epo.fif'%(id,state),overwrite=True)
         
        

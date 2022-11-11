@@ -9,9 +9,11 @@ import mne
 from mne.preprocessing import ICA
 import numpy as np
 easycap_montage = mne.channels.make_standard_montage('easycap-M1')
-    
 
-Ids=range(26,35)
+Ids=[9,10,12,13,14,15,16,26,27,28,29,30,31,32,33,34]
+
+Ids=[32]
+
 
 state='imag'
 for id in Ids:
