@@ -2,22 +2,24 @@
 """
 Created on Fri Oct 21 14:29:46 2022
 
-@author: subtl
+@author: Weiyong Xu (weiyong.w.xu@jyu.fi)
 """
 import mne
 import pandas as pd
 import seaborn as sns
 from scipy import stats
+import matplotlib.pyplot as plt
 
 Ids=[9,11,12,13,14,15,26,27,28,29,30,31,32,33,34]
 states=['attend','ignore']
 
+processed_data_folder='C:/Users/subtl/OneDrive/Area/Teaching/CIBA120-2022/CIBA120-2022-Analyzing EEG/processed_data/'
 
 evoked_all=dict()
 for id in Ids:
     evoked=dict()
     for state in states: 
-        epochs=mne.read_epochs('ciba%03d_ob_%s-epo.fif'%(id,state))        
+        epochs=mne.read_epochs(processed_data_folder+'ciba%03d_ob_%s-less_channels-epo.fif'%(id,state))        
         for condition in epochs.event_id.keys():
             evoked[condition]=epochs[condition].average()
             
@@ -47,8 +49,11 @@ for id in Ids:
     P3['ignore_P3']=ignore_P3_diff.crop(P3_TW[0],P3_TW[1]).pick_channels(ROI_chs).to_data_frame(index=None)[ROI_chs].mean().tolist()[0]
     P3_list.append(P3)
 
-df=pd.DataFrame(P3_list)       
+df=pd.DataFrame(P3_list)
+plt.figure()       
 sns.barplot(df[['attend_P3','ignore_P3']])
 sns.swarmplot(df[['attend_P3','ignore_P3']],color='black')
 df.to_csv('P3.csv')
 print(stats.ttest_rel(df['attend_P3'], df['ignore_P3']))
+
+
