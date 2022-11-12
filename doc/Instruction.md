@@ -19,14 +19,14 @@
 * The scripts are located in **CIBA120-2022-Analyzing-EEG-master\script** folder.
 
 ## Task 1: Practice the EEG preprocessing step using the oddball data from two participants:
-* open the script: **Practise-processing-oddball.py** in Spyder.
+* Open the script: **Practise-processing-oddball.py** in Spyder.
 * Follow the detailed instruction in the comments (lines starting with `#`) of the scripts.
 * It is possible to run the entire script or run each line at a time.
 
 ## Task 2: Run the group analysis script for Oddball task
 * Open the script: **oddball-group_analysis.py** in Spyder 
-* Change the **processed_data_folder** to the place where you put the processed_data_folder (downloaded from Moodle) in your own computer.
-* Run the script.
+* Change the **processed_data_folder**  in the code to the place where you put the processed_data_folder (downloaded from Moodle) in your own computer.
+* Run the script and try to resovle possible errors.
 * Check the output in the ipython terminal and the figure plotted.
 * Compare your own results with the demo results in  **[oddball-group_analysis.ipynb](https://github.com/weiyongxu/CIBA120-2022-Analyzing-EEG/blob/master/script/oddball-group-analysis.ipynb)** (can be opened on the Github webpage) or **oddball-group_analysis.html** (need to download and open locally).
 ## Task 3: Run the group analysis script for ImagMove task
