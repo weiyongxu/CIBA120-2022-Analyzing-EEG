@@ -16,11 +16,15 @@
 
 # Analyze oddball and imagmove EEG data in MNE Python
 
-## Task 1: Practise the preprocessing using the oddball data:
-    script name: Practise-processing-oddball.py
+## Task 1: Practise the EEG preprocessing step using the oddball data from two participants:
+* download the script: **Practise-processing-oddball.py**
+* open the script in Spyder
+* Follow the detailed instruction in the comments(line started with `#`)
+* It is possble to run the entire script or run each line at a time
+
 ## Task 2: Run the group analyze script for Oddball task
-    script name: oddball-group_analysis.py
-    example output: oddball-group_analysis.html
+* download the script: **oddball-group_analysis.py**
+* Run the script in Spyder and check the output in the ipyhton terminal and the figure plotted.
+* Compare your own results with the demo results in  **oddball-group_analysis.ipynb** (can be opened in Github webpage) or **oddball-group_analysis.html** (need to download and open locally).
 ## Task 3: Run the group analyze script for ImagMove task
-    script name: ImagMove-group_analysis.py
-    example output: ImagMove-group_analysis.html
+* same steps as in Task 2 but run the script : **ImagMove-group_analysis.py** and compare with corresponding demo results.
