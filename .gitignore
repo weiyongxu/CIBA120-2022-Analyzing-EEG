@@ -1,6 +1,3 @@
 data/
-processed_data/
+processed_data/*.fif
 .ipynb_*
-*.fif
-*.docx
-*.CSV

@@ -17,8 +17,10 @@
 # Analyze oddball and imagmove EEG data in MNE Python
 
 ## Task 1: Practise the preprocessing using the oddball data:
-script name: Practise-processing-oddball.py
+    script name: Practise-processing-oddball.py
 ## Task 2: Run the group analyze script for Oddball task
-script name: oddball-group_analysis.py
+    script name: oddball-group_analysis.py
+    example output: oddball-group_analysis.html
 ## Task 3: Run the group analyze script for ImagMove task
-script name: ImagMove-group_analysis.py
+    script name: ImagMove-group_analysis.py
+    example output: ImagMove-group_analysis.html
