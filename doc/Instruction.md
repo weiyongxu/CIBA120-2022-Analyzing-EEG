@@ -30,4 +30,4 @@
 * Check the output in the ipython terminal and the figure plotted.
 * Compare your own results with the demo results in  **[oddball-group_analysis.ipynb](https://github.com/weiyongxu/CIBA120-2022-Analyzing-EEG/blob/master/script/oddball-group-analysis.ipynb)** (can be opened on the Github webpage) or **oddball-group_analysis.html** (need to download and open locally).
 ## Task 3: Run the group analysis script for ImagMove task
-* same steps as in Task 2 but run the script: **ImagMove-group_analysis.py** and compare with corresponding demo results.
+* Same steps as in Task 2 but run the script: **ImagMove-group_analysis.py** and compare with corresponding demo results.
