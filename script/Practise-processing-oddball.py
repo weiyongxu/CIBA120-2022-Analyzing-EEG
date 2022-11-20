@@ -26,7 +26,17 @@ raw=mne.io.read_raw_brainvision(vhdr_fname=input_fname,preload=True)
 raw.set_montage(easycap_montage)
 
 #plot eeg , mark bad channels here
+#You can interactively toggle whether a channel is marked “bad” in the plot windows of raw.plot() by clicking on the channel name along the vertical axis.
+#you can also do this by clicking the channel’s trace in the plot area.
+#The bads field gets updated immediately each time you toggle a channel, and will retain its modified state after the plot window is closed.
+#more info see here: https://mne.tools/1.1/auto_tutorials/preprocessing/15_handling_bad_channels.html
 raw.plot(n_channels=32,block=True,scalings=dict(eeg=80e-6))
+
+# for Mac system, the above mentioned interactive method for marking bad channels might not work, in that case take a note of the bad channel(s) and explicitly mark them(it) as follows:
+raw.info['bads'] = ['TP9'] 
+
+# It is always good to double check the bad channels by printing them out
+print('Bad channels: %s'%(raw.info['bads']))
 
 #filter and rereference the EEG data
 eeg=raw.filter(None,20).set_eeg_reference('average')
@@ -35,9 +45,18 @@ eeg=raw.filter(None,20).set_eeg_reference('average')
 ica = ICA(method='fastica')    
 ica.fit(eeg.copy().filter(1,None),reject = dict(eeg=300e-6),decim=5)
 
-#plot ICA component, mark component to reject here
+#plot the topography of ica components, left click the component name will mark it as bad (for rejection)
+ica.plot_components()
+
+#plot time course of ica component, you can also mark the component to reject here similar as the way you mark bad channels
+#if you have already marked some components as bad in the previous ica.plot_components() step,these components will also be shown as bad here
 ica.plot_sources(eeg,block = True) 
+
+#you can explicitly mark the EOG/EKG related component here if the interactive method does not work:
+ica.exclude = [0, 2] # depending on scores and components
+
 print('reject ICA component: %s'%(ica.exclude))
+
 ica.apply(eeg,exclude=ica.exclude)    
 
 #define std and dev events
